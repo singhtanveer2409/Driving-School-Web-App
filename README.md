@@ -20,17 +20,31 @@ A modern, responsive web application designed to streamline the management of dr
 
 ## 🛠️ Tech Stack
 
-This project leverages the following technologies:
+The project is built on a classic, robust stack centered around **AdminLTE 3**.
 
-*   **[AdminLTE 3](https://adminlte.io/)**: The backbone of the UI, providing a solid admin template.
-*   **[Bootstrap 4](https://getbootstrap.com/)**: For responsive layout and styling components.
-*   **[SASS/SCSS](https://sass-lang.com/)**: For modular and maintainable CSS architecture.
-*   **[jQuery](https://jquery.com/)**: For DOM manipulation and plugin management.
-*   **Plugins**:
-    *   FullCalendar
-    *   Raphael
-    *   jQuery Mousewheel
-    *   jQuery UI
+### Core Technologies
+
+| Component | Technology | Role & Implementation |
+| :--- | :--- | :--- |
+| **UI Framework** | **[AdminLTE 3](https://adminlte.io/)** (Bootstrap 4) | Provides the skeleton (Sidebar, Header, Footer) and responsive grid. Ensures mobile/desktop compatibility. |
+| **Styling** | **[SASS/SCSS](https://sass-lang.com/)** | Used for modular CSS, utilizing variables and mixins for a maintainable codebase. |
+| **Scripting** | **[jQuery](https://jquery.com/)** | Primary engine for DOM manipulation and UI component initialization. |
+| **Scheduling** | **FullCalendar** | Renders interactive lesson/exam schedules. |
+| **Visualization** | **Raphael** | Vector graphics library for dashboard charts. |
+| **Interactivity** | **jQuery UI** & **Mousewheel** | Provides advanced interactions like drag-and-drop and custom scrolling. |
+
+### Implementation Strategy
+
+The project follows a **compile-to-dist** workflow where source code in `build/` is compiled into browser-ready assets in `dist/`.
+
+#### 1. Modular SCSS Architecture
+Styles are written in SCSS using a modular import system. The manifest file (`_adminlte.raw.scss`) acts as the central hub, importing variables, mixins, core styles, and components in a specific order. This allows for global theming via variable overrides.
+
+#### 2. Component Isolation
+Specific pages (like the Lockscreen) have isolated styles to prevent CSS leakage. The application supports **Dark Mode** by toggling a `.dark-mode` class on the `<body>`, which triggers specific overrides in component files.
+
+#### 3. Print Optimization
+The application is optimized for physical office workflows. The `_print.scss` file defines utility classes like `.no-print` to hide navigation bars during printing, ensuring invoices and schedules are formatted correctly for paper.
 
 ## 🚀 Getting Started
 
@@ -65,10 +79,10 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ```text
 Driving-School-Web-App/
-├── build/          # Build scripts and SCSS files
-├── dist/           # Compiled CSS and JS files
-├── pages/          # HTML pages (Lockscreen, Errors, etc.)
-├── plugins/        # Third-party plugins (FullCalendar, jQuery, etc.)
+├── build/          # Development folder: SCSS source files and build scripts
+├── dist/           # Production folder: Compiled CSS and JS files ready for the browser
+├── pages/          # HTML templates for specific views (Lockscreen, Errors, etc.)
+├── plugins/        # Self-contained repository of third-party dependencies
 └── README.md       # Project documentation
 ```
 
