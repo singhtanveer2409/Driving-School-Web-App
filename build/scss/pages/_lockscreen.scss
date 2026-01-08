@@ -4,7 +4,7 @@
 
 // ADD THIS CLASS TO THE <BODY> TAG
 .lockscreen {
-  background-color: $gray-200;
+  background-color: $gray-200; // Light gray background for the whole page
 
   // User name [optional]
   .lockscreen-name {
@@ -20,24 +20,24 @@
   text-align: center;
 
   a {
-    color: $gray-700;
+    color: $gray-700; // Dark gray text for the logo link
   }
 }
 
 .lockscreen-wrapper {
-  margin: 0 auto;
-  margin-top: 10%;
-  max-width: 400px;
+  margin: 0 auto; // Center horizontally
+  margin-top: 10%; // Push down from top
+  max-width: 400px; // Restrict width for better aesthetics
 }
 
 
 // Will contain the image and the sign in form
 .lockscreen-item {
   @include border-radius(4px);
-  background-color: $white;
+  background-color: $white; // White card background
   margin: 10px auto 30px;
   padding: 0;
-  position: relative;
+  position: relative; // Needed for absolute positioning of the image
   width: 290px;
 }
 
@@ -45,11 +45,11 @@
 .lockscreen-image {
   @include border-radius(50%);
   background-color: $white;
-  left: -10px;
+  left: -10px; // Offset to the left
   padding: 5px;
-  position: absolute;
-  top: -25px;
-  z-index: 10;
+  position: absolute; // Float above the card
+  top: -25px; // Offset to the top
+  z-index: 10; // Ensure it sits on top of the border
 
   > img {
     @include border-radius(50%);
@@ -60,10 +60,10 @@
 
 // Contains the password input and the login button
 .lockscreen-credentials {
-  margin-left: 70px;
+  margin-left: 70px; // Push right to make room for the image
 
   .form-control {
-    border: 0;
+    border: 0; // Remove default border for cleaner look
   }
 
   .btn {
@@ -78,8 +78,9 @@
 }
 
 .dark-mode {
+  // Overrides for Dark Mode support
   .lockscreen-item {
-    background-color: $dark;
+    background-color: $dark; // Dark card background
   }
   .lockscreen-logo a {
     color: $white;

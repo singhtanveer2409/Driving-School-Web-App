@@ -17,10 +17,14 @@
 //
 // Variables and Mixins
 // ---------------------------------------------------
+// Import Bootstrap variables first to set defaults
 @import "bootstrap-variables";
+// Import custom AdminLTE variables to override or extend Bootstrap
 @import "variables";
+// Import mixins for reusable logic across the theme
 @import "mixins";
 
+// Core Structure and Components
 @import "parts/core";
 @import "parts/components";
 @import "parts/extra-components";

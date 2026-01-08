@@ -9,6 +9,7 @@
   }
 
   //Elements that we want to hide when printing
+  // Hides the sidebar, header, and breadcrumbs to save ink and focus on content
   .main-sidebar,
   .main-header,
   .content-header {
@@ -16,6 +17,7 @@
   }
 
   //This is the only element that should appear, so let's remove the margins
+  // Resets the main content area to use the full width of the paper
   .content-wrapper,
   .main-footer {
     @include translate(0, 0);
@@ -24,10 +26,11 @@
   }
 
   .layout-fixed .content-wrapper {
-    padding-top: 0 !important;
+    padding-top: 0 !important; // Remove top padding usually reserved for fixed header
   }
 
   //Invoice printing
+  // Specific styles to ensure invoices look professional on paper
   .invoice {
     border: 0;
     margin: 0;
@@ -41,12 +44,13 @@
   }
 
   //Make sure table content displays properly
+  // Ensures tables don't cut off text and handle overflow gracefully
   .table-responsive {
     overflow: auto;
 
     > .table tr th,
     > .table tr td {
-      white-space: normal !important;
+      white-space: normal !important; // Allow text wrapping in print
     }
   }
 }
